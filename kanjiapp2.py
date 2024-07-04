@@ -189,7 +189,7 @@ elif page == '5級':
         ws.cell(i+1,3,value = clm3[i])
         ws.cell(i+1,4,value = clm4[i])
 
-    sheet3=wb['プリント作成シート']
+    sheet3=wb['プリント作成用シート']
     #Sheet1の値のある行数を取得
     rw=sheet3.max_row
     #Sheet1の値のある列数を取得
