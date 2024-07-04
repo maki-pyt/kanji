@@ -47,7 +47,7 @@ if page == '7級':
     clm4 = [s["後文"] for s in test_list]
     
     wb = openpyxl.load_workbook("kanjiprint2.xlsx")
-    ws = wb['Sheet3']
+    ws = wb['プリント作成用シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
@@ -56,13 +56,13 @@ if page == '7級':
         ws.cell(i+1,3,value = clm3[i])
         ws.cell(i+1,4,value = clm4[i])
 
-    sheet3=wb['Sheet3']
+    sheet3=wb['プリント作成用シート']
     #Sheet1の値のある行数を取得
     rw=sheet3.max_row
     #Sheet1の値のある列数を取得
     cl=sheet3.max_column
 
-    sheet4=wb['Sheet4']
+    sheet4=wb['プリント作成用シート2']
     #iは値のある行数分繰り返す
     #jは値のある列数分繰り返す
     #range(start,stop)はstart≦i<stopでstopで指定した値は含まないので「+1」している
@@ -113,7 +113,7 @@ elif page == '6級':
     clm4 = [s["後文"] for s in test_list]
     
     wb = openpyxl.load_workbook("kanjiprint2.xlsx")
-    ws = wb['Sheet3']
+    ws = wb['プリント作成用シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
@@ -122,13 +122,13 @@ elif page == '6級':
         ws.cell(i+1,3,value = clm3[i])
         ws.cell(i+1,4,value = clm4[i])
 
-    sheet3=wb['Sheet3']
+    sheet3=wb['プリント作成用シート']
     #Sheet1の値のある行数を取得
     rw=sheet3.max_row
     #Sheet1の値のある列数を取得
     cl=sheet3.max_column
 
-    sheet4=wb['Sheet4']
+    sheet4=wb['プリント作成用シート2']
     #iは値のある行数分繰り返す
     #jは値のある列数分繰り返す
     #range(start,stop)はstart≦i<stopでstopで指定した値は含まないので「+1」している
@@ -180,7 +180,7 @@ elif page == '5級':
     clm4 = [s["後文"] for s in test_list]
     
     wb = openpyxl.load_workbook("kanjiprint2.xlsx")
-    ws = wb['Sheet3']
+    ws = wb['プリント作成用シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
@@ -189,13 +189,13 @@ elif page == '5級':
         ws.cell(i+1,3,value = clm3[i])
         ws.cell(i+1,4,value = clm4[i])
 
-    sheet3=wb['Sheet3']
+    sheet3=wb['プリント作成シート2']
     #Sheet1の値のある行数を取得
     rw=sheet3.max_row
     #Sheet1の値のある列数を取得
     cl=sheet3.max_column
 
-    sheet4=wb['Sheet4']
+    sheet4=wb['プリント作成用シート2']
     #iは値のある行数分繰り返す
     #jは値のある列数分繰り返す
     #range(start,stop)はstart≦i<stopでstopで指定した値は含まないので「+1」している
