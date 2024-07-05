@@ -83,8 +83,8 @@ if page == '7級':
 
     wb.save('kanjiprint2.xlsx') #上書き保存
     if st.button('プリント作成'):
-        st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
-        st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
+       st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
+       st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
@@ -158,8 +158,8 @@ elif page == '6級':
 
     wb.save('kanjiprint2.xlsx') #上書き保存
     if st.button('プリント作成'):
-         st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
-        st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
+       st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
+       st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
 
 elif page == '5級':
     st.title('5級用のプリント作成ページです。')
@@ -233,12 +233,12 @@ elif page == '5級':
 
     wb.save('kanjiprint2.xlsx') #上書き保存
     if st.button('プリント作成'):
-         st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
-        st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
+       st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
+       st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
 
 else:
     st.write('作成したい級を選んでください')
     
 if st.button('問題リストを作成する。'):
-    st.write('こちらの Googleスプレッドシートを編集し問題リストを作成してください。')
-    st.markdown('https://docs.google.com/spreadsheets/d/12GOjNRojL-F_U8XMF4G1HXEPKmeYCrBZ/edit?gid=1421499505#gid=1421499505&rtpof=true&sd=true',unsafe_allow_html=True)
+   st.write('こちらの Googleスプレッドシートを編集し問題リストを作成してください。')
+   st.markdown('https://docs.google.com/spreadsheets/d/12GOjNRojL-F_U8XMF4G1HXEPKmeYCrBZ/edit?gid=1421499505#gid=1421499505&rtpof=true&sd=true',unsafe_allow_html=True)
