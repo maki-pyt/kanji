@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import openpyxl
+import openpyxl　as xl
 import streamlit as st
 import random
 import os
@@ -45,8 +45,6 @@ if page == '7級':
     clm2 = [s["漢字（回答部分）"] for s in test_list]
     clm3 = [s["ひらがな（回答部分）"] for s in test_list]
     clm4 = [s["後文"] for s in test_list]
-    
-    ws = wb['7級用プリント作成シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
@@ -82,9 +80,33 @@ if page == '7級':
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
     wb.save('kanjiprint2.xlsx') #上書き保存
-    if st.button('プリント作成'):
-       st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
-       st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
+    inputfile = 'kanjiprint2.xlsx'
+
+    # set output file name
+    outfile = 'kanjimondai2.xlsx'
+
+    # set output sheet title 
+    sheettitle = '7級用問題作成シート'
+
+    # read tmp xlsx
+    wb1 = xl.load_workbook(filename=inputfile)
+    ws1 = wb1.worksheets[3]
+
+    # create new xlsx file
+    wb2 = xl.load_workbook(filename=outfile)
+    ws2 = wb2.worksheets[1]
+    ws2.title = sheettitle
+
+   # write to sheet in output file
+   for row in ws1:
+       for cell in row:
+           ws2[cell.coordinate].value = cell.value
+
+   # save target xlsx file
+   wb2.save(outfile)
+   if st.button('プリント作成'):
+      st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
+      st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
