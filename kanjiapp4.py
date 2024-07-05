@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import openpyxl　as xl
+import openpyxl as xl
 import streamlit as st
 import random
 import os
