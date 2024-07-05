@@ -5,7 +5,7 @@ import openpyxl　as xl
 import streamlit as st
 import random
 import os
-
+import pandas as pd
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -104,9 +104,17 @@ if page == '7級':
 
    # save target xlsx file
    wb2.save(outfile)
-   if st.button('プリント作成'):
-      st.write('完成しました。以下のURLから印刷して使用してください。オリジナルの漢字プリントを作りたい場合は下のファイルをダウンロードして、コピーを保存しプリント作成用シートにデータを貼り付けて作成してください。')
-      st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
+   uploaded_files_xlsx = st.file_uploader('ファイルアップロード', type='xlsx')
+
+   submit_btn_xlsx = st.button('xlsx処理実行')
+
+   #ボタンが押されたら処理を実行する
+   if submit_btn_xlsx:
+   _df_xlsx = pd.read_excel(uploaded_files_xlsx)
+   _df_xlsx
+   #出力するデータが表示されたら、ダウンロードボタンが出てくる
+   xlsx_dl = _df_xlsx.to_excel("output.xlsx")
+   st.download_button(label='エクセルダウンロード', data=xlsx_dl, file_name='test.xlsx')
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
