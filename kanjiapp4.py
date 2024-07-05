@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import openpyxl as xl
+import openpyxl
 import streamlit as st
 import random
 import os
@@ -89,11 +89,11 @@ if page == '7級':
     sheettitle = '7級用問題作成シート'
 
     # read tmp xlsx
-    wb1 = xl.load_workbook(filename=inputfile)
+    wb1 = openpyxl.load_workbook(filename=inputfile)
     ws1 = wb1.worksheets[3]
 
     # create new xlsx file
-    wb2 = xl.load_workbook(filename=outfile)
+    wb2 = openpyxl.load_workbook(filename=outfile)
     ws2 = wb2.worksheets[1]
     ws2.title = sheettitle
 
@@ -120,7 +120,7 @@ elif page == '6級':
     st.title('6級用のプリント作成ページです。')
 
     wb = openpyxl.load_workbook("kanjimondai2.xlsx")
-    ws = wb["7級"]
+    ws = wb["6級"]
     # シート名で指定する場合
     # １行目（列名のセル）
     header_cells = ws[1]
