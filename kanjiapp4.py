@@ -50,7 +50,7 @@ if page == '7級':
     clm3 = [s["ひらがな（回答部分）"] for s in test_list]
     clm4 = [s["後文"] for s in test_list]
     
-    ws = wb['7級プリント作成用シート']
+    ws = wb['7級用プリント作成シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
@@ -125,7 +125,7 @@ elif page == '6級':
     clm3 = [s["ひらがな（回答部分）"] for s in test_list]
     clm4 = [s["後文"] for s in test_list]
     
-    ws = wb['6級プリント作成用シート']
+    ws = wb['6級用プリント作成シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
@@ -200,7 +200,7 @@ elif page == '5級':
     clm3 = [s["ひらがな（回答部分）"] for s in test_list]
     clm4 = [s["後文"] for s in test_list]
     
-    ws = wb['5級プリント作成用シート']
+    ws = wb['5級用プリント作成シート']
 
     for i in range(0,len(clm1)):
     #列に書き込み
