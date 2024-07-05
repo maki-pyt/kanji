@@ -110,8 +110,8 @@ if page == '7級':
 
    #ボタンが押されたら処理を実行する
     if submit_btn_xlsx:
-    _df_xlsx = pd.read_excel(uploaded_files_xlsx)
-    _df_xlsx
+        _df_xlsx = pd.read_excel(uploaded_files_xlsx)
+        _df_xlsx
     #出力するデータが表示されたら、ダウンロードボタンが出てくる
     xlsx_dl = _df_xlsx.to_excel("output.xlsx")
     st.download_button(label='エクセルダウンロード', data=xlsx_dl, file_name='test.xlsx')
