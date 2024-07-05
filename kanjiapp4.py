@@ -9,7 +9,7 @@ import os
 
 st.header('漢検対策プリント', divider='blue')
 
-if st.button('問題リストを作成する。', ['7級', '6級', '5級'], index=0):
+if st.button('問題リストを作成する。'):
     st.write('こちらの Googleスプレッドシートを編集し問題リストを作成してください。')
     st.markdown('https://docs.google.com/spreadsheets/d/12GOjNRojL-F_U8XMF4G1HXEPKmeYCrBZ/edit?gid=1421499505#gid=1421499505&rtpof=true&sd=true',unsafe_allow_html=True)
 
