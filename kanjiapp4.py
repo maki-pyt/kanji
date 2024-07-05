@@ -98,23 +98,23 @@ if page == '7級':
     ws2.title = sheettitle
 
    # write to sheet in output file
-   for row in ws1:
-       for cell in row:
-           ws2[cell.coordinate].value = cell.value
+    for row in ws1:
+        for cell in row:
+            ws2[cell.coordinate].value = cell.value
 
    # save target xlsx file
-   wb2.save(outfile)
-   uploaded_files_xlsx = st.file_uploader('ファイルアップロード', type='xlsx')
+    wb2.save(outfile)
+    uploaded_files_xlsx = st.file_uploader('ファイルアップロード', type='xlsx')
 
-   submit_btn_xlsx = st.button('xlsx処理実行')
+    submit_btn_xlsx = st.button('xlsx処理実行')
 
    #ボタンが押されたら処理を実行する
-   if submit_btn_xlsx:
-   _df_xlsx = pd.read_excel(uploaded_files_xlsx)
-   _df_xlsx
-   #出力するデータが表示されたら、ダウンロードボタンが出てくる
-   xlsx_dl = _df_xlsx.to_excel("output.xlsx")
-   st.download_button(label='エクセルダウンロード', data=xlsx_dl, file_name='test.xlsx')
+    if submit_btn_xlsx:
+    _df_xlsx = pd.read_excel(uploaded_files_xlsx)
+    _df_xlsx
+    #出力するデータが表示されたら、ダウンロードボタンが出てくる
+    xlsx_dl = _df_xlsx.to_excel("output.xlsx")
+    st.download_button(label='エクセルダウンロード', data=xlsx_dl, file_name='test.xlsx')
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
