@@ -6,6 +6,9 @@ import streamlit as st
 import random
 import os
 from pathlib import Path
+from spire.xls import *
+from spire.xls.common import *
+
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -71,10 +74,15 @@ if page == '7級':
             C1=sheet3.cell(row=i,column=j) #sheet1のセルの行番号と列番号を指定している
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
-    
-    #Path("G:/文書").mkdir(exist_ok=True)
-     # 保存先を指定
-    #wb.save("G:/文書/kanjiprint.xlsx")
+    wb.save('kanjiprint2.xlsx')
+
+    # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
+    workbook = Workbook()
+    workbook.LoadFromFile("kanjiprint2.xlsx")
+
+    # ExcelファイルをPDFファイルに変換して保存する
+    workbook.SaveToFile("output/ExcelをPDFに変換.pdf", FileFormat.PDF)
+    workbook.Dispose()
     
     if st.button('プリント作成'):
         st.write('完成しました。以下のURLから印刷して使用してください。')
