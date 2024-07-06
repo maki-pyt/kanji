@@ -84,12 +84,12 @@ if page == '7級':
 
     wb.save('kanjiprint2.xlsx') #上書き保存
     # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
-    wb = Workbook()
+    wb = openpyxl.load_workbook("kanjiprint2.xlsx")
     wb.LoadFromFile("kanjiprint2.xlsx")
 
     # ExcelファイルをPDFファイルに変換して保存する
-    workbook.SaveToFile("ExcelToPdf.pdf", FileFormat.PDF)
-    workbook.Dispose()
+    wb.SaveToFile("ExcelToPdf.pdf", FileFormat.PDF)
+    wb.Dispose()
   
     with open("ExcelToPdf.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
