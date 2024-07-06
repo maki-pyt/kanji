@@ -84,8 +84,8 @@ if page == '7級':
 
     wb.save('kanjiprint2.xlsx') #上書き保存
     # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
-    workbook = Workbook()
-    workbook.LoadFromFile("kanjiprint2.xlsx")
+    wb = Workbook()
+    wb.LoadFromFile("kanjiprint2.xlsx")
 
     # ExcelファイルをPDFファイルに変換して保存する
     workbook.SaveToFile("ExcelToPdf.pdf", FileFormat.PDF)
