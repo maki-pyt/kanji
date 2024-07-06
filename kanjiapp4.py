@@ -7,6 +7,8 @@ import random
 import os
 import pandas as pd
 from io import BytesIO
+from spire.xls import Spire.XLS
+from spire.xls.common import Spire.XLS
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -81,44 +83,22 @@ if page == '7級':
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
     wb.save('kanjiprint2.xlsx') #上書き保存
-    inputfile = 'kanjiprint2.xlsx'
 
-    # set output file name
-    outfile = 'kanjimondai2.xlsx'
+　　 # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
+　　　workbook = Workbook()
+　　　workbook.LoadFromFile("kanjiprint2")
 
-    # set output sheet title 
-    sheettitle = '7級用問題作成シート'
+    # ExcelファイルをPDFファイルに変換して保存する
+    workbook.SaveToFile("ExcelToPdf.pdf", FileFormat.PDF)
+    workbook.Dispose()
+  
+    with open("dummy.pdf", "rb") as pdf_file:
+    PDFbyte = pdf_file.read()
 
-    # read tmp xlsx
-    wb1 = openpyxl.load_workbook(filename=inputfile)
-    ws1 = wb1.worksheets[3]
-
-    # create new xlsx file
-    wb2 = openpyxl.load_workbook(filename=outfile)
-    ws2 = wb2.worksheets[1]
-    ws2.title = sheettitle
-
-   # write to sheet in output file
-    for row in ws1:
-        for cell in row:
-            ws2[cell.coordinate].value = cell.value
-
-   # save target xlsx file
-    wb2.save(outfile)
-   
-
-   #ボタンが押されたら処理を実行する
-    
-    df = pd.read_excel('kanjiprint2.xlsx', sheet_name='読みプリント', index_col=0)
-
-    df.to_excel(buf := BytesIO(), index=False)
-    st.download_button(
-        "Download",
-        buf.getvalue(),
-        "7classtest.xlsx",
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    )
-
+    st.download_button(label="Export_Report",
+                       data=PDFbyte,
+                       file_name="test.pdf",
+                       mime='application/octet-stream')
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
 
