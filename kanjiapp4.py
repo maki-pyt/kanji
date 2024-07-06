@@ -6,6 +6,7 @@ import streamlit as st
 import random
 import os
 import pandas as pd
+from io import BytesIO
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -110,11 +111,15 @@ if page == '7級':
 
    #ボタンが押されたら処理を実行する
     if submit_btn_xlsx:
-        _df_xlsx = pd.read_excel(uploaded_files_xlsx)
-        _df_xlsx
-    #出力するデータが表示されたら、ダウンロードボタンが出てくる
-        xlsx_dl = _df_xlsx.to_excel("output.xlsx")
-        st.download_button(label='エクセルダウンロード', data=xlsx_dl, file_name='test.xlsx')
+        df_sheet_name = pd.read_excel('kanjimondai2.xlsx', sheet_name='7級用問題作成シート', index_col=0)
+
+        df.to_excel(buf := BytesIO(), index=False)
+        st.download_button(
+            "Download",
+            buf.getvalue(),
+            "sample.xlsx",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
