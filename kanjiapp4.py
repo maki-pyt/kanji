@@ -7,8 +7,8 @@ import random
 import os
 import pandas as pd
 from io import BytesIO
-from spire.xls import Spire.XLS
-from spire.xls.common import Spire.XLS
+from spire.xls import *
+from spire.common import *
 
 st.header('漢検対策プリント', divider='blue')
 
