@@ -45,7 +45,6 @@ if page == '7級':
     clm2 = [s["漢字（回答部分）"] for s in test_list]
     clm3 = [s["ひらがな（回答部分）"] for s in test_list]
     clm4 = [s["後文"] for s in test_list]
-    wb.save('kanjimondai2.xlsx')
     
     wb = openpyxl.load_workbook("kanjiprint2.xlsx")
     ws = wb['プリント作成用シート']
