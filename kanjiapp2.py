@@ -75,7 +75,7 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
     
-    wb.save('/Users/ayamakino/Desktop/kanjiprint2copy.xlsx')
+    wb.save('kanjiprint2copy.xlsx')
     wb.close()
     
    
