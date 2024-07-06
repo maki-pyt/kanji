@@ -6,6 +6,19 @@ import streamlit as st
 import random
 import os
 from pathlib import Path
+import win32com.client        #win32comをインポートするだけでは上手くいかないので注意！！
+
+def get_user_download_folder():
+    """
+        ユーザーのダウンロードフォルダを取得するための関数
+    Returns:
+        str: フォルダパス
+    """
+    # ユーザーフォルダのパスを取得
+    user_folder = os.path.expanduser("~")
+    folder = os.path.join(user_folder, "Downloads")
+    
+    return folder
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -73,8 +86,35 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
     
-    wb.save('kanjiprint2.xlsx')
-    
+    wb.save('kanjiprint2copy.xlsx')
+    wb.close()
+
+
+    excel=win32com.client.Dispatch("Excel.Application")
+
+    #ファイル名を指定
+    xlsx_file="kanjiprint2.xlsx"
+
+    path=os.path.join(os.getcwd(), xlsx_file)#ファイルがあるディレクトリのパスとファイルパスをくっつける
+
+    file=excel.Workbooks.Open(path)
+
+    #対象シートを指定
+    file.WorkSheets(1).Activate()
+
+    #PDFのファイル名を生成
+    pdf_filename=path.split(".")[0]
+
+    #PDFファイルのパスを生成
+    pdf_path=os.path.join(folder, pdf_filename)
+
+    #PDFに変換
+    file.ActiveSheet.ExportAsFixedFormat(0, pdf_path)
+
+
+#エクセルを閉じる
+file.Close()
+excel.Quit()
     st.write('完成しました。以下のURLから印刷して使用してください。')
     st.markdown('https://github.com/maki-pyt/kanji/blob/main/kanjiprint2copy.xlsx',unsafe_allow_html=True)
 
