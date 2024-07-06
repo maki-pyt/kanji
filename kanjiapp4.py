@@ -7,8 +7,6 @@ import random
 import os
 import pandas as pd
 from io import BytesIO
-from spire.xls import *
-from spire.common import *
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -83,15 +81,22 @@ if page == '7級':
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
     wb.save('kanjiprint2.xlsx') #上書き保存
-    # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
-    wb = openpyxl.load_workbook("kanjiprint2.xlsx")
-    wb.LoadFromFile("kanjiprint2.xlsx")
 
-    # ExcelファイルをPDFファイルに変換して保存する
-    wb.SaveToFile("ExcelToPdf.pdf", FileFormat.PDF)
-    wb.Dispose()
+    from spire.xls import *
+    from spire.common import *
+
+    # Workbookクラスのオブジェクトを作成
+    workbook = Workbook()
+
+    # Excelワークブックをロード
+    workbook.LoadFromFile("kanjiprint2.xlsx")
+
+    # XMLファイルに変換して保存
+    workbook.SaveAsXml("output/ワークブック.xml")
+
+    # workbook.SaveToFile("output/ワークブック.xml", FileFormat.XML)
   
-    with open("ExcelToPdf.pdf", "rb") as pdf_file:
+    with open("ワークブック.xml.pdf", "rb") as pdf_file:
         PDFbyte = pdf_file.read()
 
     st.download_button(label="Export_Report",
