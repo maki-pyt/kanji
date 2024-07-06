@@ -45,6 +45,7 @@ if page == '7級':
     clm2 = [s["漢字（回答部分）"] for s in test_list]
     clm3 = [s["ひらがな（回答部分）"] for s in test_list]
     clm4 = [s["後文"] for s in test_list]
+    wb.save('kanjimondai2.xlsx')
     
     wb = openpyxl.load_workbook("kanjiprint2.xlsx")
     ws = wb['プリント作成用シート']
@@ -72,7 +73,7 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
     
-    wb.save('kanjiprint3.xlsx')
+    wb.save('kanjiprint2.xlsx')
     
     st.write('完成しました。以下のURLから印刷して使用してください。')
     st.markdown('https://github.com/maki-pyt/kanji/blob/main/kanjiprint2copy.xlsx',unsafe_allow_html=True)
