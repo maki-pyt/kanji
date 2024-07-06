@@ -7,8 +7,6 @@ import random
 import os
 from pathlib import Path
 
-#/Users/ayamakino/Desktop/kanjiapp3.py
-
 st.header('漢検対策プリント', divider='blue')
 
 page = st.sidebar.selectbox('作成したい級を選択', ['7級', '6級', '5級'], index=0)
@@ -75,7 +73,7 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
     
-    wb.save('kanjiprint2copy.xlsx')
+    wb.save('kanjiprint2.xlsx')
     wb.close()
     
    
