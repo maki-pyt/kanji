@@ -1,5 +1,4 @@
 openpyxl
 streamlit
 pandas
-Spire.XLS-for-Python
-plum-dispatch==1.7.4
+pywin32
