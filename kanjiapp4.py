@@ -109,7 +109,7 @@ if page == '7級':
 
    #ボタンが押されたら処理を実行する
     
-    df_sheet_name = pd.read_excel('kanjimondai2.xlsx', sheet_name='7級用問題作成シート', index_col=0)
+    df = pd.read_excel('kanjimondai2.xlsx', sheet_name='7級用問題作成シート', index_col=0)
 
     df.to_excel(buf := BytesIO(), index=False)
     st.download_button(
