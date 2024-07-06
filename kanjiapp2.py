@@ -8,15 +8,15 @@ import os
 from pathlib import Path
 import subprocess
 
-def get_user_download_folder():
-    """
-        ユーザーのダウンロードフォルダを取得するための関数
-    Returns:
-        str: フォルダパス
-    """
+#def get_user_download_folder():
+    #"""
+    #    ユーザーのダウンロードフォルダを取得するための関数
+    #Returns:
+     #   str: フォルダパス
+   # """
     # ユーザーフォルダのパスを取得
-    user_folder = os.path.expanduser("~")
-    folder = os.path.join(user_folder, "Downloads")
+   # user_folder = os.path.expanduser("~")
+    #folder = os.path.join(user_folder, "Downloads")
     #/Users/ayamakino/Desktop/kanjiapp3.py
     
     return folder
@@ -97,7 +97,7 @@ if page == '7級':
         except subprocess.CalledProcessError as e:
             print(f"エラーが発生しました: {e}")
 
-    convert_to_pdf("kanjiprint2copy.xlsx", "folder/kanjiprint2copy.pdf")
+    convert_to_pdf("kanjiprint2copy.xlsx", "/Users/ayamakino/Desktop/kanjiprint2copy.pdf")
 
 
     st.write('完成しました。以下のURLから印刷して使用してください。')
