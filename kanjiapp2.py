@@ -6,8 +6,7 @@ import streamlit as st
 import random
 import os
 from pathlib import Path
-from spire.xls import Spire.XLS-for-Python
-from spire.xls.common import Spire.XLS-for-Python
+from spire.xls import *
 
 
 st.header('漢検対策プリント', divider='blue')
