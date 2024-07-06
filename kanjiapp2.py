@@ -17,6 +17,7 @@ def get_user_download_folder():
     # ユーザーフォルダのパスを取得
     user_folder = os.path.expanduser("~")
     folder = os.path.join(user_folder, "Downloads")
+    #/Users/ayamakino/Desktop/kanjiapp3.py
     
     return folder
 
@@ -96,7 +97,7 @@ if page == '7級':
         except subprocess.CalledProcessError as e:
             print(f"エラーが発生しました: {e}")
 
-    convert_to_pdf("kanjiprint2copy.xlsx", "folder")
+    convert_to_pdf("kanjiprint2copy.xlsx", "folder/kanjiprint2copy.pdf")
 
 
     st.write('完成しました。以下のURLから印刷して使用してください。')
