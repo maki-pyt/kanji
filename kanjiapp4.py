@@ -105,21 +105,19 @@ if page == '7級':
 
    # save target xlsx file
     wb2.save(outfile)
-    uploaded_files_xlsx = st.file_uploader('ファイルアップロード', type='xlsx')
-
-    submit_btn_xlsx = st.button('xlsx処理実行')
+   
 
    #ボタンが押されたら処理を実行する
-    if submit_btn_xlsx:
-        df_sheet_name = pd.read_excel('kanjimondai2.xlsx', sheet_name='7級用問題作成シート', index_col=0)
+    
+    df_sheet_name = pd.read_excel('kanjimondai2.xlsx', sheet_name='7級用問題作成シート', index_col=0)
 
-        df.to_excel(buf := BytesIO(), index=False)
-        st.download_button(
-            "Download",
-            buf.getvalue(),
-            "sample.xlsx",
-            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        )
+    df.to_excel(buf := BytesIO(), index=False)
+    st.download_button(
+        "Download",
+        buf.getvalue(),
+        "sample.xlsx",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    )
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
