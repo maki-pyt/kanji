@@ -83,8 +83,7 @@ if page == '7級':
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
     wb.save('kanjiprint2.xlsx') #上書き保存
-
-　　 # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
+    # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
 　　　workbook = Workbook()
 　　　workbook.LoadFromFile("kanjiprint2.xlsx")
 
