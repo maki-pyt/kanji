@@ -6,7 +6,7 @@ import streamlit as st
 import random
 import os
 from pathlib import Path
-import win32com.client        #win32comをインポートするだけでは上手くいかないので注意！！
+import subprocess
 
 def get_user_download_folder():
     """
@@ -88,33 +88,17 @@ if page == '7級':
     
     wb.save('kanjiprint2copy.xlsx')
     wb.close()
+    
+    def convert_to_pdf(input_file, output_file):
+        try:
+            subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", output_file, input_file], check=True)
+            print(f"変換完了: '{input_file}' -> '{output_file}'")
+        except subprocess.CalledProcessError as e:
+            print(f"エラーが発生しました: {e}")
+
+    convert_to_pdf("kanjiprint2copy.xlsx", folder)
 
 
-    excel=win32com.client.Dispatch("Excel.Application")
-
-    #ファイル名を指定
-    xlsx_file="kanjiprint2.xlsx"
-
-    path=os.path.join(os.getcwd(), xlsx_file)#ファイルがあるディレクトリのパスとファイルパスをくっつける
-
-    file=excel.Workbooks.Open(path)
-
-    #対象シートを指定
-    file.WorkSheets(1).Activate()
-
-    #PDFのファイル名を生成
-    pdf_filename=path.split(".")[0]
-
-    #PDFファイルのパスを生成
-    pdf_path=os.path.join(folder, pdf_filename)
-
-    #PDFに変換
-    file.ActiveSheet.ExportAsFixedFormat(0, pdf_path)
-
-
-#エクセルを閉じる
-file.Close()
-excel.Quit()
     st.write('完成しました。以下のURLから印刷して使用してください。')
     st.markdown('https://github.com/maki-pyt/kanji/blob/main/kanjiprint2copy.xlsx',unsafe_allow_html=True)
 
