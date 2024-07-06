@@ -6,20 +6,8 @@ import streamlit as st
 import random
 import os
 from pathlib import Path
-import subprocess
 
-#def get_user_download_folder():
-    #"""
-    #    ユーザーのダウンロードフォルダを取得するための関数
-    #Returns:
-     #   str: フォルダパス
-   # """
-    # ユーザーフォルダのパスを取得
-   # user_folder = os.path.expanduser("~")
-    #folder = os.path.join(user_folder, "Downloads")
-    #/Users/ayamakino/Desktop/kanjiapp3.py
-    
-    return folder
+#/Users/ayamakino/Desktop/kanjiapp3.py
 
 st.header('漢検対策プリント', divider='blue')
 
@@ -87,22 +75,10 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
     
-    wb.save('kanjiprint2copy.xlsx')
+    wb.save('/Users/ayamakino/Desktop/kanjiprint2copy.xlsx')
     wb.close()
     
-    def convert_to_pdf(input_file, output_file):
-        try:
-            subprocess.run(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", output_file, input_file], check=True)
-            print(f"変換完了: '{input_file}' -> '{output_file}'")
-        except subprocess.CalledProcessError as e:
-            print(f"エラーが発生しました: {e}")
-
-    convert_to_pdf("kanjiprint2copy.xlsx", "/Users/ayamakino/Desktop/kanjiprint2copy.pdf")
-
-
-    st.write('完成しました。以下のURLから印刷して使用してください。')
-    st.markdown('https://github.com/maki-pyt/kanji/blob/main/kanjiprint2copy.xlsx',unsafe_allow_html=True)
-
+   
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
 
