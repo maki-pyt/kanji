@@ -72,7 +72,8 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
     
-    wb.save('kanjiprint2copy.xlsx')
+    wb.save('kanjiprint3.xlsx')
+    
     st.write('完成しました。以下のURLから印刷して使用してください。')
     st.markdown('https://github.com/maki-pyt/kanji/blob/main/kanjiprint2copy.xlsx',unsafe_allow_html=True)
 
