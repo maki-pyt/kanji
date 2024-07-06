@@ -92,7 +92,7 @@ if page == '7級':
     workbook.Dispose()
   
     with open("ExcelToPdf.pdf", "rb") as pdf_file:
-    PDFbyte = pdf_file.read()
+        PDFbyte = pdf_file.read()
 
     st.download_button(label="Export_Report",
                        data=PDFbyte,
