@@ -96,7 +96,7 @@ if page == '7級':
         except subprocess.CalledProcessError as e:
             print(f"エラーが発生しました: {e}")
 
-    convert_to_pdf("kanjiprint2copy.xlsx", folder)
+    convert_to_pdf("kanjiprint2copy.xlsx", "folder")
 
 
     st.write('完成しました。以下のURLから印刷して使用してください。')
