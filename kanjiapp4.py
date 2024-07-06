@@ -109,7 +109,7 @@ if page == '7級':
 
    #ボタンが押されたら処理を実行する
     
-    df = pd.read_excel('kanjiprint2.xlsx', sheet_name='書きプリント', index_col=0)
+    df = pd.read_excel('kanjiprint2.xlsx', sheet_name=None, index_col=0)
 
     df.to_excel(buf := BytesIO(), index=False)
     st.download_button(
