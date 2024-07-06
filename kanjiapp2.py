@@ -71,9 +71,9 @@ if page == '7級':
             C1=sheet3.cell(row=i,column=j) #sheet1のセルの行番号と列番号を指定している
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
-    Path("Copy").mkdir(exist_ok=True)
+    Path("G:/文書").mkdir(exist_ok=True)
      # 保存先を指定
-    wb.save("Copy/kanjiprint_コピー.xlsx")
+    wb.save("G:/文書/kanjiprint.xlsx")
     
     if st.button('プリント作成'):
         st.write('完成しました。以下のURLから印刷して使用してください。')
