@@ -74,7 +74,7 @@ if page == '7級':
     
     wb.save('kanjiprint2copy.xlsx')
     st.write('完成しました。以下のURLから印刷して使用してください。')
-        st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
+        st.markdown('https://github.com/maki-pyt/kanji/blob/main/kanjiprint2copy.xlsx=true&sd=true',unsafe_allow_html=True)
 
 elif page == '6級':
     st.title('6級用のプリント作成ページです。')
