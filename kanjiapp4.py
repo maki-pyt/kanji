@@ -86,7 +86,7 @@ if page == '7級':
 
 　　 # Workbookクラスのオブジェクトを作成し、Excelファイルをロードする
 　　　workbook = Workbook()
-　　　workbook.LoadFromFile("kanjiprint2")
+　　　workbook.LoadFromFile("kanjiprint2.xlsx")
 
     # ExcelファイルをPDFファイルに変換して保存する
     workbook.SaveToFile("ExcelToPdf.pdf", FileFormat.PDF)
