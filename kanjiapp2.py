@@ -15,7 +15,7 @@ if page == '7級':
     st.title('7級用のプリント作成ページです。')
 
     wb = openpyxl.load_workbook("kanjimondai2.xlsx")
-    ws = wb["7class"]
+    ws = wb["7級"]
     # シート名で指定する場合
     # １行目（列名のセル）
     header_cells = ws[1]
