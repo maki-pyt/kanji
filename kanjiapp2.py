@@ -73,7 +73,7 @@ if page == '7級':
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
     wb.save('kanjiprint2.xlsx') #上書き保存
-    df = pd.read_excel(kanjiprint2.xlsx',sheet_name='書きプリント')
+    df = pd.read_excel('kanjiprint2.xlsx',sheet_name='書きプリント')
     st.table(df)
     if st.button('プリント作成'):
         st.write('完成しました。以下のURLから印刷して使用してください。')
