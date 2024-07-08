@@ -5,7 +5,7 @@ import openpyxl
 import streamlit as st
 import random
 import os
-
+import pandas as pd
 
 st.header('漢検対策プリント', divider='blue')
 
