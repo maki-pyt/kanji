@@ -48,7 +48,7 @@ if page == '7級':
  
           finish = st.number_input('ここまで', min_value=20, max_value=max)
 
-          if user_input:
+          if finish:
               st.session_state['finish'] = finish
  
           st.write(f"終わりは：{st.session_state['finish']}")
