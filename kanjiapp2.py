@@ -90,10 +90,7 @@ if page == '7級':
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
     wb.save('kanjiprint2.xlsx') #上書き保存
-    if st.button("問題を作成する"):
-    st.session_state.temp += 1
-
-st.write(st.session_state.temp) if st.button('プリント作成'):
+    if st.button('プリント作成'):
         st.write('完成しました。以下のURLから印刷して使用してください。')
         st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
 
