@@ -36,7 +36,7 @@ if page == '7級':
  
           start = st.number_input('ここから', min_value=1, max_value=max)
 
-          if user_input:
+          if start:
               st.session_state['start'] = start
  
           st.write(f"スタートは：{st.session_state['start']}")
