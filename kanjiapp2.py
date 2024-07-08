@@ -31,10 +31,27 @@ if page == '7級':
     max = len(question_list)
     col1, col2 = st.columns(2)  # 2列のコンテナを用意する
     with col1:
-          start = st.number_input('ここから', min_value=1, max_value=max, value=1)
+          if 'start' not in st.session_state:
+              st.session_state['start'] = 1
+ 
+          start = st.number_input('ここから', min_value=1, max_value=max)
 
+          if user_input:
+              st.session_state['start'] = start
+ 
+          st.write(f"スタートは：{st.session_state['start']}")
+        
+        
     with col2:
-          finish = st.number_input('ここまで', min_value=20, max_value=max, value=20)
+          if 'finish' not in st.session_state:
+               st.session_state['finish'] = 20
+ 
+          finish = st.number_input('ここまで', min_value=20, max_value=max)
+
+          if user_input:
+              st.session_state['finish'] = finish
+ 
+          st.write(f"終わりは：{st.session_state['finish']}")
 
     a = start
     b = finish+2
@@ -72,10 +89,11 @@ if page == '7級':
             C2=sheet4.cell(row=j,column=i) #sheet1のセルの行番号と列番号を入れ替えてsheet2のセルを指定している
             C2.value=C1.value #sheet2のセルにsheet1のセルの値を代入
 
-    wb.save('kanjiprint3.xlsx') #上書き保存
-    df = pd.read_excel('kanjiprint3.xlsx',sheet_name='書きプリント')
-    st.table(df)
-    if st.button('プリント作成'):
+    wb.save('kanjiprint2.xlsx') #上書き保存
+    if st.button("問題を作成する"):
+    st.session_state.temp += 1
+
+st.write(st.session_state.temp) if st.button('プリント作成'):
         st.write('完成しました。以下のURLから印刷して使用してください。')
         st.markdown('https://docs.google.com/spreadsheets/d/1qv4GptxvTXnqGNWdr4MPwoyhQ5PmFh_W/edit?usp=share_link&ouid=104200975424459618460&rtpof=true&sd=true',unsafe_allow_html=True)
 
